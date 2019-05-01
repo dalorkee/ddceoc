@@ -1,0 +1,37 @@
+{
+	"crs": {
+		"properties": {
+			"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+		},
+		"type": "name"
+	},
+	"features": [{
+			"geometry": {
+				"coordinates": [-151.5129, 63.1016, 0.0],
+				"type": "Point"
+			},
+			"properties": {
+				"felt": null,
+				"id": "ak16994521",
+				"mag": 2.3,
+				"time": 1507425650893,
+				"tsunami": 0
+			},
+			"type": "Feature"
+		}, {
+			"geometry": {
+				"coordinates": [-150.4048, 63.1224, 105.5],
+				"type": "Point"
+			},
+			"properties": {
+				"felt": null,
+				"id": "ak16994519",
+				"mag": 1.7,
+				"time": 1507425289659,
+				"tsunami": 0
+			},
+			"type": "Feature"
+		}
+	],
+	"type": "FeatureCollection"
+}
