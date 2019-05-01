@@ -150,37 +150,37 @@
 				return marker;
 			});
 			var myParser = new geoXML3.parser({map: map});
-			var url = "{{ asset('public/gis/kml/province_border.kml') }}";
+			var url = "{{ asset('gis/kml/province_border.kml') }}";
 			myParser.parse(url);
 			var opt = {
 				styles: [{
 					textColor: 'white',
 					height: 53,
-					url: "public/images/m1.png",
+					url: "images/m1.png",
 					width: 53
 				},
 				{
 					textColor: 'white',
 					height: 56,
-					url: "public/images/m2.png",
+					url: "images/m2.png",
 					width: 56
 				},
 				{
 					textColor: 'white',
 					height: 66,
-					url: "public/images/m3.png",
+					url: "images/m3.png",
 					width: 66
 				},
 				{
 					textColor: 'white',
 					height: 78,
-					url: "public/images/m4.png",
+					url: "images/m4.png",
 					width: 78
 				},
 				{
 					textColor: 'white',
 					height: 90,
-					url: "public/images/m5.png",
+					url: "images/m5.png",
 					width: 90
 				}],
 				maxZoom: 17
@@ -197,14 +197,14 @@
 		});
 	</script>
 	<!-- OPTIONAL SCRIPTS -->
-	{{ Html::script(('public/AdminLTE/dist/js/demo.js')) }}
+	{{ Html::script(('AdminLTE/dist/js/demo.js')) }}
 	<!-- PAGE PLUGINS -->
-	{{ Html::script("public/vendor/geoxml3-master/kmz/geoxml3.js") }}
-	{{ Html::script("public/vendor/googlemap/markerclusterer.js") }}
+	{{ Html::script("vendor/geoxml3-master/kmz/geoxml3.js") }}
+	{{ Html::script("vendor/googlemap/markerclusterer.js") }}
 
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU3PEohqKXN7gcmwNCGBkJNIOF75OxCBA&callback=initMap">
 	<!-- SlimScroll 1.3.0 -->
-	{{ Html::script(('public/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')) }}
+	{{ Html::script(('AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')) }}
 	<!-- Page script -->
 @endsection

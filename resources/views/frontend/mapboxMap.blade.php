@@ -111,11 +111,11 @@
 @endsection
 @section('pageScript')
 	<!-- OPTIONAL SCRIPTS -->
-	{{ Html::script(('public/AdminLTE/dist/js/demo.js')) }}
+	{{ Html::script(('AdminLTE/dist/js/demo.js')) }}
 	<!-- PAGE PLUGINS -->
 	{{ Html::script("https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js") }}
 	<!-- SlimScroll 1.3.0 -->
-	{{ Html::script(('public/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')) }}
+	{{ Html::script(('AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')) }}
 
 	<script>
 		$(function () {
