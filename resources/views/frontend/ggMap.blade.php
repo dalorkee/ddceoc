@@ -204,6 +204,8 @@
 
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU3PEohqKXN7gcmwNCGBkJNIOF75OxCBA&callback=initMap">
+	</script>
+	<script>
 	<!-- SlimScroll 1.3.0 -->
 	{{ Html::script(('AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')) }}
 	<!-- Page script -->
