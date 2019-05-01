@@ -119,7 +119,7 @@
 				$infoView .= "<li><span>จังหวัด</span><span>".$prov[0]->province_name."</span></li>";
 				$infoView .= "<li><span>อำเภอ</span><span>".$dist[0]->amphur_name."</span></li>";
 				$infoView .= "<li><span>ตำบล</span><span>".$sdst[0]->tambol_name."</span></li>";
-				/* $infoView .= "<li><span>รายละเอียด</span><span><a href=\"http://www.boeeoc.moph.go.th/eventbase/event/showevent/event_id/".$item->event_id."/\" target=\"blank\"><i class=\"fa fa-eye\"></i></a></span></li>"; */
+				$infoView .= "<li><span>รายละเอียด</span><span><a href=\"http://www.boeeoc.moph.go.th/eventbase/event/showevent/event_id/".$item->event_id."/\" target=\"blank\"><i class=\"fa fa-eye\"></i></a></span></li>";
 				$infoView .= "</ul>";
 				$htm .= "{";
 				$htm .= "lat:".$item->latitude.",";
@@ -205,7 +205,6 @@
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU3PEohqKXN7gcmwNCGBkJNIOF75OxCBA&callback=initMap">
 	</script>
-	<script>
 	<!-- SlimScroll 1.3.0 -->
 	{{ Html::script(('AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')) }}
 	<!-- Page script -->
