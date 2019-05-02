@@ -94,40 +94,42 @@
 		var locations = [
 			@php
 			$dcirData->each(function($item) use ($province, $district, $subDistrict, $disease) {
-				if ($item->dcir_criterion == 1) {
-					$pin = 'images/red-dot.png';
-				} else {
-					$pin = 'images/orange-dot.png';
-				}
-				$prov = $province->where('province_id', $item->province_id);
-				$prov = $prov->values();
-				$dist = $district->where('amphur_id', $item->amphur_id);
-				$dist = $dist->values();
-				$sdst = $subDistrict->where('tambol_id', $item->tambol_id);
-				$sdst = $sdst->values();
-				if ($item->disease_id == "อื่นๆ ระบุ") {
-					$dsName = "อื่นๆ";
-				} else {
-					$dsName = $disease[$item->disease_id]->disease_name;
-				}
-				$htm = "";
-				$infoView = "";
-				$infoView .= "<ul class=\"list-group map-view-info\">";
-				$infoView .= "<li><span>โรค</span><span>".$dsName."</span></li>";
-				$infoView .= "<li><span>จำนวนผู้ป่วย</span><span>".$pt = !empty($item->event_sickness_total) ? $item->event_sickness_total : "-" ."</span></li>";
-				$infoView .= "<li><span>จังหวัด</span><span>".$prov = !empty($prov[0]->province_name) ? $prov[0]->province_name : "" . "</span></li>";
-				$infoView .= "<li><span>อำเภอ</span><span>".$dist = !empty($dist[0]->amphur_name) ? $dist[0]->amphur_name : "" . "</span></li>";
-				$infoView .= "<li><span>ตำบล</span><span>".$sdst = !empty($sdst[0]->tambol_name) ? $sdst[0]->tambol_name : "" . "</span></li>";
-				$infoView .= "<li><span>รายละเอียด</span><span><a href=\"https://e-reports.boe.moph.go.th/eventbase/event/showevent/event_id/".$item->event_id."/\" target=\"blank\"><i class=\"fa fa-eye\"></i></a></span></li>";
-				$infoView .= "</ul>";
+				if (!empty($item->latitude) && $item->longitude != "") {
+					if ($item->dcir_criterion == 1) {
+						$pin = 'images/red-dot.png';
+					} else {
+						$pin = 'images/orange-dot.png';
+					}
+					$prov = $province->where('province_id', $item->province_id);
+					$prov = $prov->values();
+					$dist = $district->where('amphur_id', $item->amphur_id);
+					$dist = $dist->values();
+					$sdst = $subDistrict->where('tambol_id', $item->tambol_id);
+					$sdst = $sdst->values();
+					if ($item->disease_id == "อื่นๆ ระบุ") {
+						$dsName = "อื่นๆ";
+					} else {
+						$dsName = $disease[$item->disease_id]->disease_name;
+					}
+					$htm = "";
+					$infoView = "";
+					$infoView .= "<ul class=\"list-group map-view-info\">";
+					$infoView .= "<li><span>โรค</span><span>".$dsName."</span></li>";
+					$infoView .= "<li><span>จำนวนผู้ป่วย</span><span>".$pt = !empty($item->event_sickness_total) ? $item->event_sickness_total : "-" ."</span></li>";
+					$infoView .= "<li><span>จังหวัด</span><span>".$prov = !empty($prov[0]->province_name) ? $prov[0]->province_name : "" . "</span></li>";
+					$infoView .= "<li><span>อำเภอ</span><span>".$dist = !empty($dist[0]->amphur_name) ? $dist[0]->amphur_name : "" . "</span></li>";
+					$infoView .= "<li><span>ตำบล</span><span>".$sdst = !empty($sdst[0]->tambol_name) ? $sdst[0]->tambol_name : "" . "</span></li>";
+					$infoView .= "<li><span>รายละเอียด</span><span><a href=\"https://e-reports.boe.moph.go.th/eventbase/event/showevent/event_id/".$item->event_id."/\" target=\"blank\"><i class=\"fa fa-eye\"></i></a></span></li>";
+					$infoView .= "</ul>";
 
-				$htm .= "{";
-				$htm .= "lat:".$item->latitude.",";
-				$htm .= "lng:".$item->longitude.",";
-				$htm .= "info:'".$infoView."',";
-				$htm .= "pin:'".$pin."'";
-				$htm .= "}, ";
-				echo $htm;
+					$htm .= "{";
+					$htm .= "lat:".$item->latitude.",";
+					$htm .= "lng:".$item->longitude.",";
+					$htm .= "info:'".$infoView."',";
+					$htm .= "pin:'".$pin."'";
+					$htm .= "}, ";
+					echo $htm;
+				}
 			});
 			@endphp
 		];
