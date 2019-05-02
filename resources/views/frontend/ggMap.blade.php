@@ -93,12 +93,11 @@
 	<script>
 		var locations = [
 			@php
-
 			$dcirData->each(function($item) use ($province, $district, $subDistrict, $disease) {
 				if ($item->dcir_criterion == 1) {
-					$pin = 'public/images/red-dot.png';
+					$pin = 'images/red-dot.png';
 				} else {
-					$pin = 'public/images/orange-dot.png';
+					$pin = 'images/orange-dot.png';
 				}
 				$prov = $province->where('province_id', $item->province_id);
 				$prov = $prov->values();
@@ -115,12 +114,13 @@
 				$infoView = "";
 				$infoView .= "<ul class=\"list-group map-view-info\">";
 				$infoView .= "<li><span>โรค</span><span>".$dsName."</span></li>";
-				$infoView .= "<li><span>จำนวนผู้ป่วย</span><span>".$item->event_sickness_total."</span></li>";
-				$infoView .= "<li><span>จังหวัด</span><span>".$prov[0]->province_name."</span></li>";
-				$infoView .= "<li><span>อำเภอ</span><span>".$dist[0]->amphur_name."</span></li>";
-				$infoView .= "<li><span>ตำบล</span><span>".$sdst[0]->tambol_name."</span></li>";
-				$infoView .= "<li><span>รายละเอียด</span><span><a href=\"http://www.boeeoc.moph.go.th/eventbase/event/showevent/event_id/".$item->event_id."/\" target=\"blank\"><i class=\"fa fa-eye\"></i></a></span></li>";
+				$infoView .= "<li><span>จำนวนผู้ป่วย</span><span>".$pt = !empty($item->event_sickness_total) ? $item->event_sickness_total : "-" ."</span></li>";
+				$infoView .= "<li><span>จังหวัด</span><span>".$prov = !empty($prov[0]->province_name) ? $prov[0]->province_name : "" . "</span></li>";
+				$infoView .= "<li><span>อำเภอ</span><span>".$dist = !empty($dist[0]->amphur_name) ? $dist[0]->amphur_name : "" . "</span></li>";
+				$infoView .= "<li><span>ตำบล</span><span>".$sdst = !empty($sdst[0]->tambol_name) ? $sdst[0]->tambol_name : "" . "</span></li>";
+				$infoView .= "<li><span>รายละเอียด</span><span><a href=\"https://e-reports.boe.moph.go.th/eventbase/event/showevent/event_id/".$item->event_id."/\" target=\"blank\"><i class=\"fa fa-eye\"></i></a></span></li>";
 				$infoView .= "</ul>";
+
 				$htm .= "{";
 				$htm .= "lat:".$item->latitude.",";
 				$htm .= "lng:".$item->longitude.",";
